@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Heroes · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/heroes/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+ {% load static %}
+     <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+     <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+</body>
+
+
+
+
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Talk</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link"  href="{% url 'userpage' %}">Conversation</a>
+              <a class="nav-link" href="{% url 'send' %}">Send</a>
+              <a class="nav-link" href="{% url 'handle_logout' %}">Logout</a>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="page">
+        <div class="page-header" style="margin:40px;">
+            <h2>Sent from {{content.user}}</h2>
+            <h3>{{content.date}} {{content.time}}</h3>
+
+        </div>
+        <div class="page-content" style="text-align-last: center;
+        margin: auto 42px;margin-bottom:30px;">
+          <p>{{content.message}}</p>
+        </div>
+
+        <a href="{% url 'userpage' %}"><button type="button" style="margin: auto 37%;
+        background-color: black;
+        color: white;
+        width: 25%;
+        font-size: 18px;margin-bottom:40px">Go Back</button></a>
+      </div>
+
+
+
+
+
+  </body>
+</html>
