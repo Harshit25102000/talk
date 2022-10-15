@@ -34,7 +34,7 @@ def userpage(request):
     if request.user.is_authenticated:
         ls=[]
 
-        datas = data.objects.filter(user=request.user).order_by('-id')
+        datas = data.objects.all().order_by('-id')
 
         for item in datas:
             print(item.id)
@@ -62,18 +62,23 @@ def message(request,id):
 
 def send(request):
     if request.user.is_authenticated:
+
         return render(request,'send.html')
     else:
         return HttpResponse("404 not allowed")
+
+import pytz
 def make_entry(request):
     if request.user.is_authenticated:
+
 
         if request.method == 'POST':
               try:
                    subject = request.POST['subject']
                    message = request.POST['message']
                    from datetime import timedelta
-                   now = datetime.now()
+                   timezone=pytz.timezone('Asia/Kolkata')
+                   now = datetime.now(tz=timezone)
                    dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
                    print("date  =", dt_string[:10])
                    print("time =", dt_string[11:])
